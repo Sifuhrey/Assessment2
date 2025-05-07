@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.fakhri0079.cinerack.model.Film
 
 class MainViewModel : ViewModel() {
-    val dataFilm = listOf(
+    val data = listOf(
         Film(
             1,
             "Avengers: Age of Ultron",
