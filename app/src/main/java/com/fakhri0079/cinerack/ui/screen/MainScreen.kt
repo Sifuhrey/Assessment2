@@ -46,12 +46,14 @@ fun MainScreen() {
 }
 
 @Composable
-fun ScreenContent(modifier: Modifier = Modifier){
-    val viewModel : MainViewModel = viewModel()
+fun ScreenContent(modifier: Modifier = Modifier) {
+    val viewModel: MainViewModel = viewModel()
     val data = viewModel.data
 
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(data){
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+    ) {
+        items(data) {
             ListItem(film = it)
             HorizontalDivider()
         }
@@ -60,11 +62,13 @@ fun ScreenContent(modifier: Modifier = Modifier){
 }
 
 @Composable
-fun ListItem(film: Film){
-    val viewModel : MainViewModel = viewModel()
+fun ListItem(film: Film) {
+    val viewModel: MainViewModel = viewModel()
     val data = viewModel.data
     Column(
-        modifier = Modifier.fillMaxWidth().padding(16.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
@@ -78,7 +82,7 @@ fun ListItem(film: Film){
             maxLines = 2,
             overflow = TextOverflow.Ellipsis
         )
-        Text(text = "Rating: "+film.rating.toString())
+        Text(text = "Rating: " + film.rating.toString())
         Text(text = film.isWatched)
     }
 }
