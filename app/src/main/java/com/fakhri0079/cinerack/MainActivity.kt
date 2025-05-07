@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.fakhri0079.cinerack.ui.screen.MainScreen
 import com.fakhri0079.cinerack.ui.theme.CineRackTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,34 +32,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun MainScreen() {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = stringResource(id = R.string.app_name))
-                },
-                colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary
-                )
-            )
-        }
-    ) { innerPadding ->
-        ScreenContent(Modifier.padding(innerPadding))
 
-    }
-}
-
-@Composable
-fun ScreenContent(modifier: Modifier = Modifier){
-    Text(
-        text = "Hello Android",
-        modifier = modifier
-    )
-}
 
 
 @Preview(showBackground = true)
