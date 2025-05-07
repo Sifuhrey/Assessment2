@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CineRack</string>
+    <string name="empty_list">Belum ada data</string>
 </resources>
