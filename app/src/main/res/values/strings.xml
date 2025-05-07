@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">CineRack</string>
     <string name="empty_list">Belum ada data</string>
+    <string name="x_diklik">%1$s diklik!</string>
+    <string name="belum_bisa">Belum bisa berfungsi</string>
 </resources>
