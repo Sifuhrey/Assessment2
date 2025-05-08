@@ -40,9 +40,11 @@ import com.fakhri0079.cinerack.R
 import com.fakhri0079.cinerack.ui.theme.CineRackTheme
 import kotlin.math.round
 
+const val KEY_ID_FILM = "idFilm"
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailScreen(navController: NavHostController){
+fun DetailScreen(navController: NavHostController, id: Long? = null){
     var judul by remember { mutableStateOf("") }
     var deskripsi by remember { mutableStateOf("") }
     var nilai by remember { mutableFloatStateOf(0f) }
@@ -60,7 +62,11 @@ fun DetailScreen(navController: NavHostController){
                     }
                 },
                 title = {
-                    Text(text = stringResource(id = R.string.tambah_film))
+                    if (id == null) {
+                        Text(text = stringResource(id = R.string.tambah_film))
+                    }else{
+                        Text(text = stringResource(id = R.string.edit_film))
+                    }
                 },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
