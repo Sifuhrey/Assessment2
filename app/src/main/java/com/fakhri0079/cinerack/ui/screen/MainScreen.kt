@@ -32,14 +32,17 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.fakhri0079.cinerack.R
 import com.fakhri0079.cinerack.model.Film
+import com.fakhri0079.cinerack.navigation.Screen
 import com.fakhri0079.cinerack.ui.theme.CineRackTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
-    val context = LocalContext.current
+fun MainScreen(navController: NavHostController) {
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -55,7 +58,7 @@ fun MainScreen() {
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    Toast.makeText(context, R.string.belum_bisa, Toast.LENGTH_SHORT).show()
+                    navController.navigate(Screen.NewForm.route)
                 }
             ) {
                 Icon(
@@ -135,6 +138,6 @@ fun ListItem(film: Film, onClick: () -> Unit) {
 @Composable
 fun MainScreenPreview() {
     CineRackTheme {
-        MainScreen()
+        MainScreen(rememberNavController())
     }
 }

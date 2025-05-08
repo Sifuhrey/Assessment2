@@ -10,4 +10,5 @@
     <string name="is_watched">Sudah ditonton?</string>
     <string name="done">Sudah ditonton</string>
     <string name="not_done">Belum ditonton</string>
+    <string name="score">Skor</string>
 </resources>

@@ -8,6 +8,7 @@
     <string name="desc">Description</string>
     <string name="rating">Rating</string>
     <string name="is_watched">Watched yet?</string>
-    <string name="done">Already watched</string>
-    <string name="not_done">Not watched yet</string>
+    <string name="done">Watched</string>
+    <string name="not_done">Not watched</string>
+    <string name="score">Score</string>
 </resources>
