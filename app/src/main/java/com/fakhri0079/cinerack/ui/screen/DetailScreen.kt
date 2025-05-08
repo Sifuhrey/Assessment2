@@ -40,7 +40,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.fakhri0079.cinerack.R
 import com.fakhri0079.cinerack.ui.theme.CineRackTheme
-import kotlin.math.round
 
 const val KEY_ID_FILM = "idFilm"
 
@@ -143,7 +142,7 @@ fun FormFilm(
                 capitalization = KeyboardCapitalization.Sentences,
                 imeAction = ImeAction.Next
             ),
-            modifier = Modifier.fillMaxWidth().height(50.dp)
+            modifier = Modifier.fillMaxWidth().height(300.dp)
         )
         Slider(
             modifier = Modifier.padding(top = 10.dp, bottom = 10.dp),
