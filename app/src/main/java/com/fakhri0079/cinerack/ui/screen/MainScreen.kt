@@ -1,5 +1,6 @@
 package com.fakhri0079.cinerack.ui.screen
 
+import android.content.res.Configuration
 import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -28,10 +29,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.fakhri0079.cinerack.R
 import com.fakhri0079.cinerack.model.Film
+import com.fakhri0079.cinerack.ui.theme.CineRackTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -122,6 +125,16 @@ fun ListItem(film: Film, onClick: () -> Unit) {
             overflow = TextOverflow.Ellipsis
         )
         Text(text = "Rating: " + film.rating.toString())
-        Text(text = film.isWatched)
+        Text(text = if (film.isWatched) stringResource(R.string.done) else stringResource(R.string.not_done))
+    }
+}
+
+
+@Preview(showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+@Composable
+fun MainScreenPreview() {
+    CineRackTheme {
+        MainScreen()
     }
 }

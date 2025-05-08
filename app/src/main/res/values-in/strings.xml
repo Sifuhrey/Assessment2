@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="empty_list">Belum ada data</string>
+    <string name="x_diklik">%1$s diklik!</string>
+    <string name="belum_bisa">Belum bisa berfungsi</string>
+    <string name="tambah_film">Tambah film</string>
+    <string name="judul">Judul</string>
+    <string name="desc">Deskripsi</string>
+    <string name="rating">Rating</string>
+    <string name="is_watched">Sudah ditonton?</string>
+    <string name="done">Sudah ditonton</string>
+    <string name="not_done">Belum ditonton</string>
+</resources>

@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">CineRack</string>
-    <string name="empty_list">Belum ada data</string>
-    <string name="x_diklik">%1$s diklik!</string>
-    <string name="belum_bisa">Belum bisa berfungsi</string>
+    <string name="app_name" translatable="false">CineRack</string>
+    <string name="empty_list">Empty data</string>
+    <string name="x_diklik">%1$s clicked</string>
+    <string name="belum_bisa">Not functioned yet</string>
+    <string name="tambah_film">Add film</string>
+    <string name="judul">Title</string>
+    <string name="desc">Description</string>
+    <string name="rating">Rating</string>
+    <string name="is_watched">Watched yet?</string>
+    <string name="done">Already watched</string>
+    <string name="not_done">Not watched yet</string>
 </resources>

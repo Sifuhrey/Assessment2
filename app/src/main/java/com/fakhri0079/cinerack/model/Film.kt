@@ -5,5 +5,5 @@ data class Film(
     val title: String,
     val desc: String,
     val rating: Float,
-    val isWatched: String,
+    val isWatched: Boolean,
 )
