@@ -11,4 +11,6 @@
     <string name="done">Watched</string>
     <string name="not_done">Not watched</string>
     <string name="score">Score</string>
+    <string name="kembali">Back</string>
+    <string name="simpan">Save</string>
 </resources>

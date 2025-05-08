@@ -11,4 +11,6 @@
     <string name="done">Sudah ditonton</string>
     <string name="not_done">Belum ditonton</string>
     <string name="score">Skor</string>
+    <string name="kembali">Kembali</string>
+    <string name="simpan">Simpan</string>
 </resources>

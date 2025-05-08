@@ -18,7 +18,7 @@ fun SetupNavGraph(navController: NavHostController = rememberNavController()){
             MainScreen(navController)
         }
         composable(route = Screen.NewForm.route){
-            DetailScreen()
+            DetailScreen(navController)
         }
     }
 }
