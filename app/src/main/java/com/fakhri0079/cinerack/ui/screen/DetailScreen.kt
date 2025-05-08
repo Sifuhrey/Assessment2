@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -34,6 +35,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.fakhri0079.cinerack.R
@@ -45,10 +47,21 @@ const val KEY_ID_FILM = "idFilm"
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(navController: NavHostController, id: Long? = null){
+    val viewModel: MainViewModel = viewModel()
     var judul by remember { mutableStateOf("") }
     var deskripsi by remember { mutableStateOf("") }
     var nilai by remember { mutableFloatStateOf(0f) }
-    var tonton by remember { mutableStateOf(true) }
+    var tonton by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        if (id == null) return@LaunchedEffect
+        val data = viewModel.getFilm(id)?: return@LaunchedEffect
+        judul = data.title
+        deskripsi = data.desc
+        nilai = data.rating
+        tonton = data.isWatched
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -133,12 +146,13 @@ fun FormFilm(
             modifier = Modifier.fillMaxWidth().height(50.dp)
         )
         Slider(
+            modifier = Modifier.padding(top = 10.dp, bottom = 10.dp),
             value = rating,
             onValueChange = { onRatingChange(it) },
-            steps = 9,
+
             valueRange = 0f..10f
         )
-        Text(text = stringResource(R.string.score)+": "+ round(rating).toInt().toString())
+        Text(text = stringResource(R.string.score)+": "+ String.format("%.1f",rating))
         Switch(
             checked = isWatched,
             onCheckedChange = {onIsWatchedChange(it)}
