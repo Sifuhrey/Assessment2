@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.fakhri0079.cinerack.navigation.SetupNavGraph
 import com.fakhri0079.cinerack.ui.screen.MainScreen
 import com.fakhri0079.cinerack.ui.theme.CineRackTheme
 
@@ -16,7 +17,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CineRackTheme {
-                MainScreen()
+                SetupNavGraph()
             }
         }
     }

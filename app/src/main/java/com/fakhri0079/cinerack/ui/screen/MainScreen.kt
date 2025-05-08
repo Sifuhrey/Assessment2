@@ -89,7 +89,7 @@ fun ScreenContent(modifier: Modifier = Modifier) {
             contentPadding = PaddingValues(bottom = 84.dp)
         ) {
             items(data) {
-                ListItem(film = it){
+                ListItem(film = it) {
                     val pesan = context.getString(R.string.x_diklik, it.title)
                     Toast.makeText(context, pesan, Toast.LENGTH_SHORT).show()
                 }
@@ -103,8 +103,6 @@ fun ScreenContent(modifier: Modifier = Modifier) {
 
 @Composable
 fun ListItem(film: Film, onClick: () -> Unit) {
-    val viewModel: MainViewModel = viewModel()
-    val data = viewModel.data
     Column(
         modifier = Modifier
             .fillMaxWidth()
