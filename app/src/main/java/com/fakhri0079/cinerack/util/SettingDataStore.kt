@@ -25,7 +25,7 @@ class SettingDataStore(private val context: Context) {
 
     suspend fun saveLayout(isList: Boolean){
         context.dataStore.edit { preferences ->
-            preferences[IS_LIST] ?: isList
+            preferences[IS_LIST] = isList
         }
     }
 }
