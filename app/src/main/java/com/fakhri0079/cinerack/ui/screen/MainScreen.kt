@@ -51,12 +51,17 @@ import com.fakhri0079.cinerack.R
 import com.fakhri0079.cinerack.model.Film
 import com.fakhri0079.cinerack.navigation.Screen
 import com.fakhri0079.cinerack.ui.theme.CineRackTheme
+import com.fakhri0079.cinerack.util.SettingDataStore
 import com.fakhri0079.cinerack.util.ViewModelFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(navController: NavHostController) {
-    var showList by remember { mutableStateOf(true) }
+    val dataStore = SettingDataStore(LocalContext.current)
+    val showList by dataStore.layoutFlow.collectAsState(true)
     Scaffold(
         topBar = {
             TopAppBar(
@@ -68,7 +73,11 @@ fun MainScreen(navController: NavHostController) {
                     titleContentColor = MaterialTheme.colorScheme.primary
                 ),
                 actions = {
-                    IconButton(onClick = { showList = !showList }) {
+                    IconButton(onClick = {
+                        CoroutineScope(Dispatchers.IO).launch {
+                            dataStore.saveLayout(!showList)
+                        }
+                    }) {
                         Icon(
                             painter = painterResource(
                                 if (showList) R.drawable.baseline_grid_view_24
