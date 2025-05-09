@@ -55,18 +55,19 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
     val context = LocalContext.current
     val factory = ViewModelFactory(context)
     val viewModel: DetailViewModel = viewModel(factory = factory)
-    var judul by remember { mutableStateOf("") }
-    var deskripsi by remember { mutableStateOf("") }
-    var nilai by remember { mutableFloatStateOf(0f) }
-    var tonton by remember { mutableStateOf(false) }
+    var title by remember { mutableStateOf("") }
+    var desc by remember { mutableStateOf("") }
+    var rating by remember { mutableFloatStateOf(0f) }
+    var isWatched by remember { mutableStateOf(false) }
+    var showDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         if (id == null) return@LaunchedEffect
         val data = viewModel.getFilm(id) ?: return@LaunchedEffect
-        judul = data.title
-        deskripsi = data.desc
-        nilai = data.rating
-        tonton = data.isWatched
+        title = data.title
+        desc = data.desc
+        rating = data.rating
+        isWatched = data.isWatched
     }
 
     Scaffold(
@@ -94,15 +95,15 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
                 ),
                 actions = {
                     IconButton(onClick = {
-                        if (judul == "" || deskripsi == "") {
+                        if (title == "" || desc == "") {
                             Toast.makeText(context,R.string.invalid, Toast.LENGTH_LONG).show()
                             return@IconButton
                         }
                         if (id == null) {
-                        viewModel.insert(judul, deskripsi, nilai, tonton)
+                        viewModel.insert(title, desc, rating, isWatched)
                     }
                         else{
-                            viewModel.update(id,judul, deskripsi, nilai, tonton)
+                            viewModel.update(id,title, desc, rating, isWatched)
                         }
                         navController.popBackStack()
                     }) {
@@ -114,8 +115,7 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
                     }
                     if (id != null){
                         DeleteAction {
-                            viewModel.delete(id)
-                            navController.popBackStack()
+                            showDialog = true
                         }
                     }
                 }
@@ -123,16 +123,25 @@ fun DetailScreen(navController: NavHostController, id: Long? = null) {
         }
     ) { padding ->
         FormFilm(
-            title = judul,
-            onTitleChange = { judul = it },
-            desc = deskripsi,
-            onDescChange = { deskripsi = it },
-            rating = nilai,
-            onRatingChange = { nilai = it },
-            isWatched = tonton,
-            onIsWatchedChange = { tonton = it },
+            title = title,
+            onTitleChange = { title = it },
+            desc = desc,
+            onDescChange = { desc = it },
+            rating = rating,
+            onRatingChange = { rating = it },
+            isWatched = isWatched,
+            onIsWatchedChange = { isWatched = it },
             modifier = Modifier.padding(padding)
         )
+        if (id != null && showDialog){
+            DisplayAlertDialog(
+                onDismissRequest = {showDialog = false}
+            ) {
+                showDialog = false
+                viewModel.delete(id)
+                navController.popBackStack()
+            }
+        }
     }
 }
 
@@ -171,6 +180,7 @@ fun FormFilm(
     isWatched: Boolean, onIsWatchedChange: (Boolean) -> Unit,
     modifier: Modifier
 ) {
+
     Column(
         modifier = modifier
             .fillMaxSize()

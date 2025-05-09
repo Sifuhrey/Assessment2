@@ -17,4 +17,7 @@
     <string name="invalid">Movie title and description should not be empty</string>
     <string name="lainnya">Other option</string>
     <string name="hapus">Delete movie</string>
+    <string name="pesan_hapus">Delete this movie?</string>
+    <string name="tombol_hapus">Delete</string>
+    <string name="tombol_batal">Cancel</string>
 </resources>

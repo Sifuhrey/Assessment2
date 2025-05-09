@@ -17,4 +17,7 @@
     <string name="invalid">Judul dan deskripsi tidak boleh kosong</string>
     <string name="lainnya">Opsi lainnya</string>
     <string name="hapus">Hapus film</string>
+    <string name="pesan_hapus">Hapus film ini?</string>
+    <string name="tombol_hapus">Hapus</string>
+    <string name="tombol_batal">Batal</string>
 </resources>
