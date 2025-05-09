@@ -14,4 +14,7 @@
     <string name="kembali">Kembali</string>
     <string name="simpan">Simpan</string>
     <string name="edit_film">Ubah data film</string>
+    <string name="invalid">Judul dan deskripsi tidak boleh kosong</string>
+    <string name="lainnya">Opsi lainnya</string>
+    <string name="hapus">Hapus film</string>
 </resources>

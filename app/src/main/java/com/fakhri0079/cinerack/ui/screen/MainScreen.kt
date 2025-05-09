@@ -125,12 +125,8 @@ fun ListItem(film: Film, onClick: () -> Unit) {
             overflow = TextOverflow.Ellipsis,
             fontWeight = FontWeight.Bold
         )
-        Text(
-            text = film.desc,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis
-        )
-        Text(text = "Rating: " + film.rating.toString())
+
+        Text(text = "Rating: " + String.format("%.1f", film.rating))
         Text(text = if (film.isWatched) stringResource(R.string.done) else stringResource(R.string.not_done))
     }
 }

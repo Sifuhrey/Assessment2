@@ -3,7 +3,7 @@
     <string name="empty_list">Empty data</string>
     <string name="x_diklik">%1$s clicked</string>
     <string name="belum_bisa">Not functioned yet</string>
-    <string name="tambah_film">Add film</string>
+    <string name="tambah_film">Add movie</string>
     <string name="judul">Title</string>
     <string name="desc">Description</string>
     <string name="rating">Rating</string>
@@ -13,5 +13,8 @@
     <string name="score">Score</string>
     <string name="kembali">Back</string>
     <string name="simpan">Save</string>
-    <string name="edit_film">Update film data</string>
+    <string name="edit_film">Update movie data</string>
+    <string name="invalid">Movie title and description should not be empty</string>
+    <string name="lainnya">Other option</string>
+    <string name="hapus">Delete movie</string>
 </resources>
